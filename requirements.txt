@@ -1,0 +1,25 @@
+# Core
+django==4.0.2
+# campo slug automático
+django-autoslug==1.9.8
+# ferramenta de debug
+django-debug-toolbar==3.1.1
+#Quando o models timestampmodels foi criado, modificado, excluído
+django-model-utils==4.1.0
+#django widget facilita a separação da renderização do template do javascritp/python
+django-widget-tweaks==1.4.12
+# criação de factories
+factory-boy==3.1.0
+# opcional mas pq eu curto, hehehehe
+ipython==7.19.0
+# trabalhar com imagens, upload
+pillow==8.0.1
+# Database Postgres
+psycopg2-binary==2.9.3
+# Testes e testes
+pytest==6.1.2
+# cobertura de testes
+pytest-cov==2.10.1
+# testes com django
+pytest-django==4.1.0
+

@@ -9,8 +9,6 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
-      # source
-      - ./src/db/initdb_scripts:/docker-entrypoint-initdb.d
       # data
       - ./volumes/db_data:/var/lib/postgresql/data    
     networks:
@@ -19,29 +17,23 @@ services:
     # entrypoint:
     #   - ./docker/entry-point.sh
 
-  # web:
-  #   #image: registry.melo.joel.br/polls
-  #   #localização do Dockerfile
-  #   build: .
-  #   env_file:
-  #     # config
-  #     - ./config/db.env
-  #     - ./config/app.env
-  #   volumes:
-  #     # source
-  #     - ./polls:/app/
-  #     # data
-  #     - ./volumes/app_media:/app_media
-  #     # log
-  #     - ./volumes/app_log:/app_log
-  #   ports:
-  #     - "${APP_PORT}:8000"
-  #   networks:
-  #     - barramento
-  #   restart: unless-stopped
-  #   environment:
-  #     DEBUG: 'true'    
-
+  web:
+    #image: registry.xxxx.ccc.br/polls
+    #localização do Dockerfile
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      # source
+      - .:/code
+    ports:
+      - "${APP_PORT}:8000"
+    depends_on:
+      - db      
+    networks:
+      - barramento
+    restart: unless-stopped
+    environment:
+      DEBUG: 'true'   
         
 networks: 
   barramento:

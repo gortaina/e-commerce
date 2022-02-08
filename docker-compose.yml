@@ -9,6 +9,8 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
+      # source
+      - ./src/db/initdb_scripts:/docker-entrypoint-initdb.d
       # data
       - ./volumes/db_data:/var/lib/postgresql/data    
     networks:

@@ -10,3 +10,11 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = "about.html"    
 
+def is_ajax(request):
+    if request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest":
+        return True
+
+    if request.content_type == "application/json":
+        return True
+    return False    
+

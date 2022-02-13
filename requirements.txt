@@ -1,5 +1,7 @@
 # Core
-django==4.0.2
+#is_ajax não funciona!
+#django==4.0.2
+django==3.1.3
 # campo slug automático
 django-autoslug==1.9.8
 # ferramenta de debug
